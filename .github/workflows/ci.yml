@@ -17,8 +17,11 @@ jobs:
           with:
              node-version: 18
     
-        - name: Install Dependencies
-          run: npm install
+        - name: Install dependencies
+          run: npm ci
 
-        - name: Build Angular App
+        - name: Run tests
+          run: npm run test:ci
+
+        - name: Build
           run: npm run build
