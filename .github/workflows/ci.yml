@@ -36,5 +36,6 @@ jobs:
             name: my-artifact
             path: |
               ./my-app1/package*.json
+              ./my-app1/dist/*
 
         
