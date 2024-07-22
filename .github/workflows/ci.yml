@@ -26,7 +26,12 @@ jobs:
         - name: Build
           run: npm run build
 
-        - uses: actions/upload-artifact@v4
-          with:
-            name: my-artifact
-            path: .${{github.workspace}}/my-app1/*
+        # - uses: actions/upload-artifact@v4
+        #   with:
+        #     name: my-artifact
+        #     path: .${{github.workspace}}/my-app1/*
+
+        - name: Current pwd
+          run: |
+            pwd 
+            ls -ls
