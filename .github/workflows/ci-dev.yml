@@ -31,10 +31,10 @@ jobs:
   get-vars:
     needs: [ plan, apply ] 
     runs-on: ubuntu-latest
-    if: |
-      (needs.plan.result == 'success' || needs.plan.result == 'skipped') && 
-      (needs.apply.result == 'success' || needs.apply.result == 'skipped') && 
-      !(needs.plan.result == 'skipped' && needs.apply.result == 'skipped')
+    if: always()
+    #   (needs.plan.result == 'success' || needs.plan.result == 'skipped') && 
+    #   (needs.apply.result == 'success' || needs.apply.result == 'skipped') && 
+    #   !(needs.plan.result == 'skipped' && needs.apply.result == 'skipped')
     steps:
         - name:  Job2 
           run: |
