@@ -1,9 +1,16 @@
 name: Jobs condition testing
 on: 
   workflow_dispatch:
+    inputs:
+        infra_deploy:
+            required: true
+            type: boolean
+        code_deploy:
+            required: false
+            type: boolean
 
 jobs:
-  build-job:
+  plan:
     runs-on: ubuntu-latest
     
     steps:
@@ -11,8 +18,8 @@ jobs:
           run: |
             echo job1
         
-  build-job2:
-    needs: build-job
+  apply:
+    needs: plan
     runs-on: ubuntu-latest
 
     steps:
@@ -20,8 +27,17 @@ jobs:
           run: |
             echo job2 
 
-  build-job3:
-    needs: build-job2
+  get-vars:
+    needs: plan
+    runs-on: ubuntu-latest
+
+    steps:
+        - name:  Job2 
+          run: |
+            echo job2
+            
+  code-deploy:
+    needs: get-vars
     runs-on: ubuntu-latest
 
     steps:
