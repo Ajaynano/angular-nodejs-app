@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
         always() &&
-        (needs.get-vars.result == 'success' || needs.get-vars.result == 'skipped')
+        (needs.get-vars.result == 'success')
     steps:
         - name:  Job3
           run: |
