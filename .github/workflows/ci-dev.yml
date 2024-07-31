@@ -30,7 +30,6 @@ jobs:
 
   get-vars:
     if: ${{ inputs.code_deploy || needs.apply.result == 'skipped' }}
-    needs: apply
     runs-on: ubuntu-latest
 
     steps:
