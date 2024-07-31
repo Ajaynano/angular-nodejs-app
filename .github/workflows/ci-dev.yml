@@ -12,10 +12,20 @@ jobs:
             echo job1
         
   build-job2:
+    needs: build-job
     runs-on: ubuntu-latest
 
     steps:
         - name:  Job2 
           run: |
             echo job2 
+
+  build-job3:
+    needs: build-job2
+    runs-on: ubuntu-latest
+
+    steps:
+        - name:  Job3
+          run: |
+            echo job3
 
