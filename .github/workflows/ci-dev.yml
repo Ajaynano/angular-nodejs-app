@@ -29,7 +29,12 @@ jobs:
             echo job2 
 
   get-vars:
-    if: ${{ inputs.code_deploy || needs.apply.result == 'skipped' }}
+    needs: [ plan, apply ] 
+    if: |
+      always() &&
+      (needs.plan.result == 'success' || needs.plan.result == 'skipped') && 
+      (needs.apply.result == 'success' || needs.apply.result == 'skipped') && 
+      !(needs.plan.result == 'skipped' && needs.apply.result == 'skipped')
     runs-on: ubuntu-latest
 
     steps:
