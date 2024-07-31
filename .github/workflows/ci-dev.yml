@@ -33,7 +33,8 @@ jobs:
     runs-on: ubuntu-latest
     if: |
         always() &&
-        (needs.apply.result == 'success' || needs.apply.result == 'skipped')
+        (needs.apply.result == 'success' || needs.apply.result == 'skipped') &&
+        (inputs.code_deploy == 'true')
     #   (needs.plan.result == 'success' || needs.plan.result == 'skipped') && 
     #   (needs.apply.result == 'success' || needs.apply.result == 'skipped') && 
     #   !(needs.plan.result == 'skipped' && needs.apply.result == 'skipped')
