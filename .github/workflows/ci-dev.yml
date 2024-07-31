@@ -47,7 +47,9 @@ jobs:
   code-deploy:
     needs: get-vars
     runs-on: ubuntu-latest
-
+    if: |
+        always() &&
+        (needs.get-vars.result == 'success' || needs.get-vars.result == 'skipped')
     steps:
         - name:  Job3
           run: |
