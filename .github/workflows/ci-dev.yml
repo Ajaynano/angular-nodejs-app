@@ -29,7 +29,7 @@ jobs:
             echo job2 
 
   get-vars:
-    if: ${{ inputs.code_deploy}}
+    if: ${{ inputs.code_deploy || needs.apply.outputs == 'skipped'}}
     needs: apply
     runs-on: ubuntu-latest
 
