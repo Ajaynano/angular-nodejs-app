@@ -28,14 +28,14 @@ jobs:
             echo job2 
 
   get-vars:
-    needs: plan
+    needs: apply
     runs-on: ubuntu-latest
 
     steps:
         - name:  Job2 
           run: |
             echo job2
-            
+
   code-deploy:
     needs: get-vars
     runs-on: ubuntu-latest
