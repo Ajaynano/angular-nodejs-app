@@ -34,7 +34,7 @@ jobs:
     if: |
         always() &&
         (needs.apply.result == 'success' || needs.apply.result == 'skipped') &&
-        (inputs.code_deploy == 'true')
+        (inputs.code_deploy)
     #   (needs.plan.result == 'success' || needs.plan.result == 'skipped') && 
     #   (needs.apply.result == 'success' || needs.apply.result == 'skipped') && 
     #   !(needs.plan.result == 'skipped' && needs.apply.result == 'skipped')
