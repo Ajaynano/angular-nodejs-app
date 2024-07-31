@@ -1,0 +1,21 @@
+name: Jobs condition testing
+on: 
+  workflow_dispatch:
+
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    
+    steps:
+        - name:  Job1
+          run: |
+            echo job1
+        
+  build-job2:
+    runs-on: ubuntu-latest
+
+    steps:
+        - name:  Job2 
+          run: |
+            echo job2 
+
